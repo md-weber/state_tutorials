@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:setstatetutorial/setState/checkbox_screen.dart';
+import 'package:smtutorial/setState/checkbox_screen.dart';
 
 void main() {
   runApp(MyApp());
