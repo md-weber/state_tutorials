@@ -1,6 +1,8 @@
-# setstatetutorial
+[![Buy us a coffee](https://img.shields.io/badge/Buy%20us%20a%20coffee-Thanks-green?style=flat)](https://www.buymeacoffee.com/sBGXj7Pl4)
 
-State Management with - setState pattern⁄~
+# Tutorial for State Management
+This repository presents the state management tutorial.
+- [Set State - State Management in Flutter](https://youtu.be/nDwH7iskkHA)
 
 ## Getting Started
 
