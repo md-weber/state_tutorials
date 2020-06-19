@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:smtutorial/models/drink.dart';
+import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
 
-class Drink {
-  String name;
-  bool selected;
-
-  Drink(this.name, this.selected);
-}
-
 // Widget
-class CheckBoxScreen extends StatefulWidget {
+class CheckBoxSetStateScreen extends StatefulWidget {
   @override
-  _CheckBoxScreenState createState() => _CheckBoxScreenState();
+  _CheckBoxSetStateScreenState createState() => _CheckBoxSetStateScreenState();
 }
 
-class _CheckBoxScreenState extends State<CheckBoxScreen> {
+class _CheckBoxSetStateScreenState extends State<CheckBoxSetStateScreen> {
   List<Drink> drinks = [
     Drink("Water", false),
     Drink("Cuba Libre", false),
@@ -78,26 +73,6 @@ class _CheckBoxScreenState extends State<CheckBoxScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class DrinksWidget extends StatelessWidget {
-  final Drink drink;
-  final Function onChanged;
-
-  const DrinksWidget({Key key, this.drink, this.onChanged}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Checkbox(
-          value: drink.selected,
-          onChanged: onChanged,
-        ),
-        Text(drink.name)
-      ],
     );
   }
 }
