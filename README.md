@@ -4,6 +4,10 @@
 This repository presents the state management tutorial.
 - [Set State - State Management in Flutter](https://youtu.be/nDwH7iskkHA)
 
+You will find for each tutorial two branches.
+1. Solution Branch that is named by the <package>_solution (e.g cubit_solution)
+2. Tutorial Branch taht is named by the <package>_tutorial (e.g cubit_tutorial)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
