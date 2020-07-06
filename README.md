@@ -4,9 +4,24 @@
 This repository presents the state management tutorial.
 - [Set State - State Management in Flutter](https://youtu.be/nDwH7iskkHA)
 
+## How to use this repository
 You will find for each tutorial two branches.
-1. Solution Branch that is named by the <package>_solution (e.g cubit_solution)
-2. Tutorial Branch taht is named by the <package>_tutorial (e.g cubit_tutorial)
+1. Solution Branch that is named by the `package`_solution (e.g cubit_solution)
+2. Tutorial Branch that is named by the `package`_tutorial (e.g cubit_tutorial)
+
+In the tutorial branch you will get all the different tasks that we solve in
+the video step by step. Just open your TODO tab and you will find all the 
+necessary steps to follow along.
+
+If you have some feedback it would be great if you add that to the [issue](https://github.com/md-weber/state_tutorials/issues/1)
+with this we know how to improve.
+
+## Table of Content
+All solutions are also part of the master channel
+to let them run you have to change the widgets in main.dart
+[Cubit Solution](./lib/cubit)
+[setState Solution](./lib/setState)
+
 
 ## Getting Started
 
