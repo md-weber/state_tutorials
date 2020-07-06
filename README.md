@@ -6,14 +6,7 @@ This repository presents the state management tutorial.
 
 You will find for each tutorial two branches.
 1. Solution Branch that is named by the <package>_solution (e.g cubit_solution)
-2. Tutorial Branch that is named by the <package>_tutorial (e.g cubit_tutorial)
-
-In the tutorial branch you will get all the different tasks that we solve in
-the video step by step. Just open your TODO tab and you will find all the 
-necessary steps to follow along.
-
-If you have some feedback it would be great if you add that to the [issue](https://github.com/md-weber/state_tutorials/issues/1)
-with this we know how to improve.
+2. Tutorial Branch taht is named by the <package>_tutorial (e.g cubit_tutorial)
 
 ## Getting Started
 
