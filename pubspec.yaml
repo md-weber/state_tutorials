@@ -32,6 +32,7 @@ dependencies:
   cubit: ^0.1.2
   flutter_cubit: ^0.1.0
   replay_cubit: ^0.2.0
+  cubit_test: ^0.1.0
 
 dev_dependencies:
   flutter_test:
