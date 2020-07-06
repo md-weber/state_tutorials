@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit/flutter_cubit.dart';
-import 'package:smtutorial/cubit/drinks_cubit.dart';
 import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
@@ -39,9 +38,7 @@ class _CheckboxCubitScreenState extends State<CheckboxCubitScreen> {
                       (drink) => DrinksWidget(
                         drink: drink,
                         onChanged: (bool value) {
-                          context
-                              .cubit<DrinksCubit>()
-                              .selectDrink(drink, value);
+                          // TODO 7: Execute the selectDrink function
                         },
                       ),
                     )
