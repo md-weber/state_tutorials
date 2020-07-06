@@ -2,8 +2,9 @@ import 'package:cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit/flutter_cubit.dart';
 import 'package:smtutorial/cubit/checkbox_cubit_screen.dart';
-import 'package:smtutorial/cubit/cubit_observer.dart';
 import 'package:smtutorial/cubit/drinks_cubit.dart';
+
+import 'cubit/cubit_observer.dart';
 
 void main() {
   Cubit.observer = MainCubitObserver();
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Cubit tutorial - Flutter Explained',
       theme: ThemeData.light().copyWith(primaryColor: Color(0xFFe13133)),
       home: CubitProvider(
         create: (context) => DrinksCubit(),
