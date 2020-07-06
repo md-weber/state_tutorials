@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cubit/flutter_cubit.dart';
 import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
