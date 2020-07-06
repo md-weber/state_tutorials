@@ -6,8 +6,8 @@ This repository presents the state management tutorial.
 
 ## How to use this repository
 You will find for each tutorial two branches.
-1. Solution Branch that is named by the <package>_solution (e.g cubit_solution)
-2. Tutorial Branch that is named by the <package>_tutorial (e.g cubit_tutorial)
+1. Solution Branch that is named by the <<package>>_solution (e.g cubit_solution)
+2. Tutorial Branch that is named by the <<package>>_tutorial (e.g cubit_tutorial)
 
 In the tutorial branch you will get all the different tasks that we solve in
 the video step by step. Just open your TODO tab and you will find all the 
