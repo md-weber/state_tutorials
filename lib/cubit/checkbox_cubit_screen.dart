@@ -51,7 +51,7 @@ class _CheckboxCubitScreenState extends State<CheckboxCubitScreen> {
                     itemBuilder: (context, index) {
                       return ListTile(
                         title: Text(
-                          // TODO 5: Show a sub selection of drinks that is selected
+                          // TODO 5.2: Show a sub selection of drinks that is selected
                           selectedDrinks.toList()[index].name,
                         ),
                       );
