@@ -25,6 +25,10 @@ class DrinksCubit extends ReplayCubit<List<Drink>> {
     emit(list);
   }
 
+  // HotFix: Added after the video recording
+  List<Drink> get selectedDrinks =>
+      state.where((element) => element.selected).toList();
+
   @override
   void onTransition(Transition<List<Drink>> transition) {
     print("Cubit itself: $transition");

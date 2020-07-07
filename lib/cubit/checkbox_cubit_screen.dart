@@ -23,12 +23,6 @@ class CheckboxCubitScreen extends StatelessWidget {
               decoration: kWhiteBackground,
               child: CubitBuilder<DrinksCubit, List<Drink>>(
                 builder: (BuildContext context, List<Drink> state) {
-                  print("CubitBuilder");
-                  state.forEach((element) {
-                    print("${element.name} ${element.selected}");
-                  });
-                  var selectedDrinks =
-                      state.where((element) => element.selected);
                   return Column(children: [
                     Text(
                       "Drinks tonight",
@@ -55,11 +49,15 @@ class CheckboxCubitScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return ListTile(
                             title: Text(
-                              selectedDrinks.toList()[index].name,
+                              context
+                                  .cubit<DrinksCubit>()
+                                  .selectedDrinks[index]
+                                  .name,
                             ),
                           );
                         },
-                        itemCount: selectedDrinks.length,
+                        itemCount:
+                            context.cubit<DrinksCubit>().selectedDrinks.length,
                       ),
                     ),
                   ]);
