@@ -3,6 +3,7 @@
 # Tutorial for State Management
 This repository presents the state management tutorial.
 - [Set State - State Management in Flutter](https://youtu.be/nDwH7iskkHA)
+- [Cubit State management - Light Weight combination of BloC and Provider](https://youtu.be/e6x41c2fY7w)
 
 ## How to use this repository
 You will find for each tutorial two branches.
