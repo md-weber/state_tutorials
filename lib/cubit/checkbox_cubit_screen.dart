@@ -12,6 +12,31 @@ class CheckboxCubitScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Cocktail Order"),
+        actions: <Widget>[
+          CubitBuilder<DrinksCubit, List<Drink>>(
+            builder: (BuildContext context, state) {
+              final cubit = context.cubit<DrinksCubit>();
+              return IconButton(
+                  icon: Icon(Icons.skip_previous),
+                  disabledColor: Colors.green,
+                  onPressed: () {
+                    cubit.canUndo ? cubit.undo() : print("nope");
+                  });
+            },
+          ),
+          CubitBuilder<DrinksCubit, List<Drink>>(
+            builder: (BuildContext context, state) {
+              final cubit = context.cubit<DrinksCubit>();
+              return IconButton(
+                disabledColor: Colors.green,
+                icon: Icon(Icons.skip_next),
+                onPressed: () {
+                  cubit.canRedo ? cubit.redo() : print("nope");
+                },
+              );
+            },
+          )
+        ],
       ),
       body: Container(
         decoration: kMainBackgroundImage,
