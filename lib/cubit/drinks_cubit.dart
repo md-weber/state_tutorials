@@ -4,7 +4,7 @@ import 'package:smtutorial/models/drink.dart';
 
 class DrinksCubit extends ReplayCubit<List<Drink>> {
   DrinksCubit()
-      : super([
+      : super(const <Drink>[
           Drink("Water", false),
           Drink("Cuba Libre", false),
           Drink("Pina Colada", false),
@@ -13,15 +13,14 @@ class DrinksCubit extends ReplayCubit<List<Drink>> {
 
   void addDrink(Drink newDrink) => emit(state..add(newDrink));
 
-  void removeDrink(Drink newDrink) {
-    state.remove(newDrink);
-    emit(state);
-  }
+  void removeDrink(Drink newDrink) => emit(state..remove(newDrink));
 
   void selectDrink(Drink drink, bool selected) {
-    var list = [...state];
-    list.firstWhere((element) => element.name == drink.name).selected =
-        selected;
+    List<Drink> list = state
+        .map((d) => d.name == drink.name
+            ? d.copyWith(selected: selected)
+            : d.copyWith())
+        .toList();
     emit(list);
   }
 

@@ -47,7 +47,7 @@ class _CheckBoxSetStateScreenState extends State<CheckBoxSetStateScreen> {
                           drink: drink,
                           onChanged: (value) {
                             setState(() {
-                              drink.selected = value;
+                              drink.copyWith(selected: value);
                             });
                           },
                         ),
