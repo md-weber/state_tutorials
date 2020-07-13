@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:smtutorial/riverpod/drinks_notifier.dart';
-import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
 
-final drinksProvider = ChangeNotifierProvider((_) => DrinksNotifier());
-
+// TODO 2: Create a ChangeNotifierProvider that initializes
 class CheckboxRiverpodScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,46 +18,32 @@ class CheckboxRiverpodScreen extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(8.0),
               decoration: kWhiteBackground,
-              child: Consumer((context, read) {
-                return Column(children: [
-                  Text(
-                    "Drinks tonight",
-                    style: Theme.of(context).textTheme.headline4,
+              // TODO 3: Use a Riverpod Consumer
+              child: Column(children: [
+                Text(
+                  "Drinks tonight",
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                // TODO 4: Receive the drinks from the provider and map it to a DrinksWidget
+                // TODO 6: OnChanged of the DrinksWidget should call the selectDrink method
+                Text(
+                  "The order is: ",
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(
+                            // TODO 7: replace the empty string with the selectedDrinks getter method
+                            ""),
+                      );
+                    },
+                    // TODO 8: replace the 0 with the selectedDrinks length
+                    itemCount: 0,
                   ),
-                  ...read(drinksProvider)
-                      .drinks
-                      .map(
-                        (drink) => DrinksWidget(
-                          drink: drink,
-                          onChanged: (bool value) {
-                            drinksProvider
-                                .read(context)
-                                .selectDrink(drink, value);
-                          },
-                        ),
-                      )
-                      .toList(),
-                  Text(
-                    "The order is: ",
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(
-                            drinksProvider
-                                .read(context)
-                                .selectedDrinks[index]
-                                .name,
-                          ),
-                        );
-                      },
-                      itemCount: read(drinksProvider).selectedDrinks.length,
-                    ),
-                  ),
-                ]);
-              }),
+                ),
+              ]),
             ),
           ),
         ),
