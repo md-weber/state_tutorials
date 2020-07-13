@@ -1,6 +1,7 @@
 import 'package:cubit/cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:smtutorial/setState/checkbox_setState_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:smtutorial/riverpod/checkbox_riverpod_screen.dart';
 
 import 'cubit/cubit_observer.dart';
 
@@ -17,8 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Cubit tutorial - Flutter Explained',
       theme: ThemeData.light().copyWith(primaryColor: Color(0xFFe13133)),
-      // TODO: Set to your preferred solution
-      home: CheckBoxSetStateScreen(),
+      home: ProviderScope(child: CheckboxRiverpodScreen()),
     );
   }
 }
