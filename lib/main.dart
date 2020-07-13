@@ -1,12 +1,8 @@
-import 'package:cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smtutorial/riverpod/checkbox_riverpod_screen.dart';
 
-import 'cubit/cubit_observer.dart';
-
 void main() {
-  Cubit.observer = MainCubitObserver();
   runApp(MyApp());
 }
 
@@ -16,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Cubit tutorial - Flutter Explained',
+      title: 'Riverpod solution - Flutter Explained',
       theme: ThemeData.light().copyWith(primaryColor: Color(0xFFe13133)),
       home: ProviderScope(child: CheckboxRiverpodScreen()),
     );
