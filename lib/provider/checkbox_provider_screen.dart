@@ -6,7 +6,7 @@ import '../constants.dart';
 
 class CheckboxProviderScreen extends StatefulWidget {
   @override
-  _Checkbo⁄xProviderScreenState createState() => _CheckboxProviderScreenState();
+  _CheckboxProviderScreenState createState() => _CheckboxProviderScreenState();
 }
 
 class _CheckboxProviderScreenState extends State<CheckboxProviderScreen> {
