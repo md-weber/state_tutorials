@@ -1,25 +1,19 @@
 import 'package:smtutorial/models/drink.dart';
 import 'package:state_notifier/state_notifier.dart';
 
-class DrinksNotifier extends StateNotifier<List<Drink>> {
-  DrinksNotifier()
-      : super([
-          Drink("Water", false),
-          Drink("Cuba Libre", false),
-          Drink("Pina Colada", false),
-          Drink("Havana Cola", false)
-        ]);
+class DrinkList extends StateNotifier<List<Drink>> {
+  DrinkList(List<Drink> initialDrinks) : super(initialDrinks ?? []);
 
-  void addDrink(Drink newDrink) => state..add(newDrink);
+  void addDrink(Drink newDrink) => state = [...state, newDrink];
 
-  void removeDrink(Drink newDrink) => state..remove(newDrink);
+  void removeDrink(Drink newDrink) =>
+      state = state.where((drink) => drink.name != newDrink.name).toList();
 
   void selectDrink(Drink drink, bool selected) {
-    List<Drink> list = state.map(
-      (d) =>
-          d.name == drink.name ? d.copyWith(selected: selected) : d.copyWith(),
-    );
-    state = list;
+    state = [
+      for (final d in state)
+        if (d.name == drink.name) Drink(d.name, selected) else d,
+    ];
   }
 
   List<Drink> get selectedDrinks =>
