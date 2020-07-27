@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smtutorial/riverpod/checkbox_riverpod_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +15,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Riverpod solution - Flutter Explained',
       theme: ThemeData.light().copyWith(primaryColor: Color(0xFFe13133)),
-      // TODO 8: Surround the Screen with the ProviderScope
       home: CheckboxRiverpodScreen(),
     );
   }
