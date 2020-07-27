@@ -1,32 +1,29 @@
-import 'package:flutter/widgets.dart';
 import 'package:smtutorial/models/drink.dart';
+import 'package:state_notifier/state_notifier.dart';
 
-class DrinksNotifier extends ChangeNotifier {
-  List<Drink> _drinks = [
-    Drink("Water", false),
-    Drink("Cuba Libre", false),
-    Drink("Pina Colada", false),
-    Drink("Havana Cola", false)
-  ];
+class DrinksNotifier extends StateNotifier<List<Drink>> {
+  DrinksNotifier()
+      : super([
+          Drink("Water", false),
+          Drink("Cuba Libre", false),
+          Drink("Pina Colada", false),
+          Drink("Havana Cola", false)
+        ]);
 
-  void addDrink(Drink newDrink) {
-    _drinks.add(newDrink);
-    notifyListeners();
-  }
+  void addDrink(Drink newDrink) => state..add(newDrink);
 
-  void removeDrink(Drink newDrink) {
-    _drinks.remove(newDrink);
-    notifyListeners();
-  }
+  void removeDrink(Drink newDrink) => state..remove(newDrink);
 
   void selectDrink(Drink drink, bool selected) {
-    _drinks.firstWhere((element) => element.name == drink.name).selected =
-        selected;
-    notifyListeners();
+    List<Drink> list = state.map(
+      (d) =>
+          d.name == drink.name ? d.copyWith(selected: selected) : d.copyWith(),
+    );
+    state = list;
   }
 
   List<Drink> get selectedDrinks =>
-      _drinks.where((element) => element.selected).toList();
+      state.where((element) => element.selected).toList();
 
-  List<Drink> get drinks => _drinks;
+  List<Drink> get drinks => state;
 }

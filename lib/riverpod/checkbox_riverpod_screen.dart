@@ -5,7 +5,7 @@ import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
 
-final drinksProvider = ChangeNotifierProvider((_) => DrinksNotifier());
+final drinksProvider = StateNotifierProvider((_) => DrinksNotifier());
 
 class CheckboxRiverpodScreen extends StatelessWidget {
   @override
