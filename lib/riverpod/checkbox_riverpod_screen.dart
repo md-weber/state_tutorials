@@ -4,7 +4,7 @@ import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
 
-// TODO 5: Create a final variable with a StateNotifierProvider
+// TODO 4: Create a final variable with a StateNotifierProvider
 // TODO 6: Initialize the DrinkStateNotifier with a List of drinks
 
 // TODO 7: Initialize a allDrinks variable
