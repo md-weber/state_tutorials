@@ -4,11 +4,6 @@ import 'package:state_notifier/state_notifier.dart';
 class DrinkList extends StateNotifier<List<Drink>> {
   DrinkList(List<Drink> initialDrinks) : super(initialDrinks ?? []);
 
-  void addDrink(Drink newDrink) => state = [...state, newDrink];
-
-  void removeDrink(Drink newDrink) =>
-      state = state.where((drink) => drink.name != newDrink.name).toList();
-
   void selectDrink(Drink drink, bool selected) {
     state = [
       for (final d in state)
