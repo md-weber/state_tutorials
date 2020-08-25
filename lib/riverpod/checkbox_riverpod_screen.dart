@@ -8,11 +8,14 @@ import '../constants.dart';
 // TODO 6: Initialize the DrinkStateNotifier with a List of drinks
 
 // TODO 7: Initialize a allDrinks variable
-// TODO 8: Use the Computed Method of Riverpod to read the state of drinksProvider
+// TODO 8: Use a basic Provider to receive the selectedDrinks
 
+// TODO 9: Change StatelessWidget to a ConsumerWidget
 class CheckboxRiverpodScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // TODO 10: Add both providers and read the values
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Cocktail Order"),
@@ -25,7 +28,6 @@ class CheckboxRiverpodScreen extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(8.0),
               decoration: kWhiteBackground,
-              // TODO 9: Use the Riverpod Consumer
               child: Column(children: [
                 Text(
                   "Drinks tonight",
