@@ -1,3 +1,13 @@
-// TODO 2: Create a DrinkStateNotifier class that extends StateNotifier
-// TODO 3: Create the super notification
-// TODO 4: Add the method to select a Drink
+import 'package:smtutorial/models/drink.dart';
+import 'package:state_notifier/state_notifier.dart';
+
+class DrinkStateNotifier extends StateNotifier<List<Drink>> {
+  DrinkStateNotifier(state) : super(state ?? []);
+
+  void selectDrink(Drink drink, bool selected) {
+    state = [
+      for (final d in state)
+        if (d.name == drink.name) Drink(d.name, selected) else d,
+    ];
+  }
+}

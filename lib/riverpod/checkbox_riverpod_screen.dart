@@ -1,20 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smtutorial/models/drink.dart';
+import 'package:smtutorial/riverpod/drink_state_notifier.dart';
 import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
 
-// TODO 5: Create a final variable with a StateNotifierProvider
-// TODO 6: Initialize the DrinkStateNotifier with a List of drinks
+final drinksProvider = StateNotifierProvider(
+  (ref) => DrinkStateNotifier(
+    [
+      Drink("Water", false),
+      Drink("Cuba Libre", false),
+      Drink("Pina Colada", false),
+      Drink("Havana Cola", false)
+    ],
+  ),
+);
 
-// TODO 7: Initialize a allDrinks variable
-// TODO 8: Use a basic Provider to receive the selectedDrinks
+final selectedProvider = Provider<List<Drink>>(
+  (ref) {
+    return ref
+        .watch(drinksProvider.state)
+        .where((element) => element.selected)
+        .toList();
+  },
+);
 
-// TODO 9: Change StatelessWidget to a ConsumerWidget
-class CheckboxRiverpodScreen extends StatelessWidget {
+class CheckboxRiverpodScreen extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
-    // TODO 10: Add both providers and read the values
+  Widget build(BuildContext context, ScopedReader watch) {
+    List<Drink> allDrinks = watch(drinksProvider.state);
+    List<Drink> selectedDrinks = watch(selectedProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -33,13 +49,13 @@ class CheckboxRiverpodScreen extends StatelessWidget {
                   "Drinks tonight",
                   style: Theme.of(context).textTheme.headline4,
                 ),
-                // TODO 10: Write a for loop to access all drinks via read of the computed function
-                DrinksWidget(
-                  drink: Drink("Replace", false),
-                  onChanged: (bool value) {
-                    // TODO 11: Access the drinksProvider.read and selectDrink
-                  },
-                ),
+                for (final d in allDrinks)
+                  DrinksWidget(
+                    drink: Drink(d.name, d.selected),
+                    onChanged: (bool value) {
+                      context.read(drinksProvider).selectDrink(d, value);
+                    },
+                  ),
                 Text(
                   "The order is: ",
                   style: Theme.of(context).textTheme.headline4,
@@ -48,13 +64,14 @@ class CheckboxRiverpodScreen extends StatelessWidget {
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                       return ListTile(
-                        title: Text(
-                            // TODO 12: read drinksProvider and get the selectedDrinks
-                            ""),
+                        title: Consumer(
+                          builder: (context, watch, child) => Text(
+                            watch(selectedProvider)[index].name,
+                          ),
+                        ),
                       );
                     },
-                    // TODO 13: use the read drinksProvider to receive the selectedDrinks
-                    itemCount: 0,
+                    itemCount: selectedDrinks.length,
                   ),
                 ),
               ]),
