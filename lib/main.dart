@@ -4,7 +4,7 @@ import 'package:smtutorial/riverpod/checkbox_riverpod_screen.dart';
 
 void main() {
   // TODO 1: Add the ProviderScope to the root of the application
-  runApp(ProviderScope(child: MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
