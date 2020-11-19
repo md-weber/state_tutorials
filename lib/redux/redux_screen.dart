@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:smtutorial/models/drink.dart';
 import 'package:smtutorial/redux/actions.dart';
+import 'package:smtutorial/redux/app_state.dart';
 import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
@@ -22,8 +23,8 @@ class ReduxScreen extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(8.0),
               decoration: kWhiteBackground,
-              child: StoreConnector<List<Drink>, List<Drink>>(
-                converter: (store) => store.state,
+              child: StoreConnector<AppState, List<Drink>>(
+                converter: (store) => store.state.drinks,
                 builder: (context, List<Drink> allDrinks) => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -36,7 +37,7 @@ class ReduxScreen extends StatelessWidget {
                           (drink) => DrinksWidget(
                             drink: drink,
                             onChanged: (value) {
-                              StoreProvider.of<List<Drink>>(context).dispatch(
+                              StoreProvider.of<AppState>(context).dispatch(
                                 UpdateDrinkAction(drink),
                               );
                             },
@@ -47,19 +48,19 @@ class ReduxScreen extends StatelessWidget {
                       "The order is: ",
                       style: Theme.of(context).textTheme.headline4,
                     ),
-                    StoreConnector<List<Drink>, List<Drink>>(
-                      converter: (store) => store.state
-                          .where((element) => element.selected)
-                          .toList(),
-                      builder: (context, List<Drink> drinks) => Expanded(
-                        child: ListView.builder(
-                          itemBuilder: (context, index) => ListTile(
-                            title: Text(
-                              drinks[index].name,
-                            ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemBuilder: (context, index) => ListTile(
+                          title: Text(
+                            allDrinks
+                                .where((element) => element.selected)
+                                .toList()[index]
+                                .name,
                           ),
-                          itemCount: drinks.length,
                         ),
+                        itemCount: allDrinks
+                            .where((element) => element.selected)
+                            .length,
                       ),
                     ),
                   ],
