@@ -6,6 +6,7 @@ This repository presents the state management tutorial.
 - [Cubit State management - Light Weight combination of BloC and Provider](https://youtu.be/e6x41c2fY7w)
 - [Provider State management - ChangeNotifier + Flutter](https://www.youtube.com/watch?v=hwv31bNdSt4)
 - [Riverpod an easier approach to access Provider - Flutter State Management](https://youtu.be/FHJM5pd1yF4)
+- [Redux State Mangement - Single Source of Truth (]()
 
 ## How to use this repository
 You will find for each tutorial two branches.
