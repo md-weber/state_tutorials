@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get_it_mixin/get_it_mixin.dart';
-import 'package:smtutorial/get_it_mixins/drinks_notifier.dart';
-import 'package:smtutorial/models/drink.dart';
 import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
 
-// Widget
-class GetItMixinsScreen extends StatelessWidget with GetItMixin {
+// TODO 5: Add the GetItMixin to the StatelessWidget
+class GetItMixinScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final List<Drink> drinks = get<GetItDrinksNotifier>().drinks;
-    var selectedDrinks = drinks.where((element) => element.selected);
-
+    final drinks = [];
+    final selectedDrinks = [];
+    // TODO 6: include drinks via getX
+    // TODO 7: include drinks via getX
     return Scaffold(
       appBar: AppBar(
         title: Text("Cocktail Order"),
