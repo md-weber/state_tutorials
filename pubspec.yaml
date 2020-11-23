@@ -34,6 +34,7 @@ dependencies:
   replay_cubit: ^0.2.0
   flutter_riverpod: ^0.5.1
   flutter_redux: ^0.7.0
+  get_it_mixin: ^1.5.1
 
 dev_dependencies:
   flutter_test:

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 import 'package:smtutorial/models/drink.dart';
 import 'package:smtutorial/redux/app_state.dart';
 import 'package:smtutorial/redux/reducer.dart';
-import 'package:redux/redux.dart';
 import 'package:smtutorial/redux/redux_screen.dart';
 
+import 'get_it_mixins/locator.dart';
+
 void main() {
+  setup();
   runApp(MyApp());
 }
 
