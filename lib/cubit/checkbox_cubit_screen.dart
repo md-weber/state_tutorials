@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cubit/flutter_cubit.dart';
-import 'package:smtutorial/cubit/drinks_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smtutorial/models/drink.dart';
 import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
+import 'drinks_cubit.dart';
 
 class CheckboxCubitScreen extends StatelessWidget {
   @override
@@ -21,20 +21,21 @@ class CheckboxCubitScreen extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(8.0),
               decoration: kWhiteBackground,
-              child: CubitBuilder<DrinksCubit, List<Drink>>(
-                builder: (BuildContext context, List<Drink> state) {
+              child: BlocBuilder<DrinksCubit, List<Drink>>(
+                builder: (context, state) {
+                  final selectedDrinks =
+                      context.watch<DrinksCubit>().selectedDrinks;
+
                   return Column(children: [
-                    Text(
-                      "Drinks tonight",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
+                    Text("Drinks tonight",
+                        style: Theme.of(context).textTheme.headline4),
                     ...state
                         .map(
                           (drink) => DrinksWidget(
                             drink: drink,
                             onChanged: (bool value) {
                               context
-                                  .cubit<DrinksCubit>()
+                                  .read<DrinksCubit>()
                                   .selectDrink(drink, value);
                             },
                           ),
@@ -49,15 +50,11 @@ class CheckboxCubitScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return ListTile(
                             title: Text(
-                              context
-                                  .cubit<DrinksCubit>()
-                                  .selectedDrinks[index]
-                                  .name,
+                              selectedDrinks.toList()[index].name,
                             ),
                           );
                         },
-                        itemCount:
-                            context.cubit<DrinksCubit>().selectedDrinks.length,
+                        itemCount: selectedDrinks.length,
                       ),
                     ),
                   ]);
