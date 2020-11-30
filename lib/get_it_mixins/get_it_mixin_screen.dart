@@ -35,8 +35,7 @@ class GetItMixinScreen extends StatelessWidget {
                         (drink) => DrinksWidget(
                           drink: drink,
                           onChanged: (value) {
-                            drink.selected = value;
-                            drinks.add(drink);
+                            // TODO 9: Use get to access the ChangeNotifier and update the list of drinks
                           },
                         ),
                       )
