@@ -6,10 +6,8 @@ import 'package:smtutorial/redux/app_state.dart';
 import 'package:smtutorial/redux/reducer.dart';
 import 'package:smtutorial/redux/redux_screen.dart';
 
-import 'get_it_mixins/locator.dart';
-
 void main() {
-  setup();
+  // TODO 5: call the setup method
   runApp(MyApp());
 }
 

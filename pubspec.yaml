@@ -36,7 +36,6 @@ dependencies:
   flutter_redux: ^0.7.0
 
   # TODO 1: add the get_it_mixin dependency (https://pub.dev/packages/get_it_mixin)
-  get_it_mixin: ^1.5.1
 
 dev_dependencies:
   flutter_test:

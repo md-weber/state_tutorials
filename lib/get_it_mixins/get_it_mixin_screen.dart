@@ -3,14 +3,14 @@ import 'package:smtutorial/widgets/drinks_widget.dart';
 
 import '../constants.dart';
 
-// TODO 5: Add the GetItMixin to the StatelessWidget
+// TODO 6: Add the GetItMixin to the StatelessWidget
 class GetItMixinScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final drinks = [];
     final selectedDrinks = [];
-    // TODO 6: include drinks via getX
     // TODO 7: include drinks via getX
+    // TODO 8: include drinks via getX
     return Scaffold(
       appBar: AppBar(
         title: Text("Cocktail Order"),
