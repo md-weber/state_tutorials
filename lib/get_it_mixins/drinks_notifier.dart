@@ -9,16 +9,6 @@ class GetItDrinksNotifier extends ChangeNotifier {
     Drink("Havana Cola", false)
   ];
 
-  void addDrink(Drink newDrink) {
-    _drinks.add(newDrink);
-    notifyListeners();
-  }
-
-  void removeDrink(Drink newDrink) {
-    _drinks.remove(newDrink);
-    notifyListeners();
-  }
-
   void selectDrink(Drink drink, bool selected) {
     _drinks.firstWhere((element) => element.name == drink.name).selected =
         selected;

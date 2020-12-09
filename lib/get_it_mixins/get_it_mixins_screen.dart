@@ -10,8 +10,9 @@ import '../constants.dart';
 class GetItMixinsScreen extends StatelessWidget with GetItMixin {
   @override
   Widget build(BuildContext context) {
-    final List<Drink> drinks = get<GetItDrinksNotifier>().drinks;
-    var selectedDrinks = drinks.where((element) => element.selected);
+    final List<Drink> drinks = getX((GetItDrinksNotifier x) => x.drinks);
+    final List<Drink> selectedDrinks =
+        getX((GetItDrinksNotifier x) => x.selectedDrinks);
 
     return Scaffold(
       appBar: AppBar(
@@ -37,8 +38,8 @@ class GetItMixinsScreen extends StatelessWidget with GetItMixin {
                         (drink) => DrinksWidget(
                           drink: drink,
                           onChanged: (value) {
-                            drink.selected = value;
-                            drinks.add(drink);
+                            get<GetItDrinksNotifier>()
+                                .selectDrink(drink, value);
                           },
                         ),
                       )
