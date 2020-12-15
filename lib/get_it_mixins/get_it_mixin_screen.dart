@@ -9,8 +9,8 @@ class GetItMixinScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final drinks = [];
     final selectedDrinks = [];
-    // TODO 7: include drinks via getX
-    // TODO 8: include drinks via getX
+    // TODO 7: include drinks via watchOnly (https://pub.dev/packages/get_it_mixin#watching-data)
+    // TODO 8: include selected drinks via watchOnly (https://pub.dev/packages/get_it_mixin#watching-data)
     return Scaffold(
       appBar: AppBar(
         title: Text("Cocktail Order"),
