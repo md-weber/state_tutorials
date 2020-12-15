@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smtutorial/get_it_mixins/get_it_mixins_screen.dart';
+import 'package:smtutorial/get_it_mixins/locator.dart';
 
 void main() {
+  setup();
   runApp(MyApp());
 }
 
